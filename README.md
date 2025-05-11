@@ -1,7 +1,5 @@
-# Egg-Timer
-## Egg Timer inspired by @Nashallery
-
 # My Egg Timer 🥚⏲️
+## Egg Timer inspired by @Nashallery
 
 A cute retro-style desktop timer app built using [Electron](https://www.electronjs.org/).
 
