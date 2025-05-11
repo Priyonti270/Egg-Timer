@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Egg Timer</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <audio id="click-sound" src="./assets/sounds/click.mp3" preload="auto"></audio>
+        <div class="header-container">
+            <span class="title">Egg Timer &lt;3</span>
+            <button id="minimise-icon"><img src="./assets/minimise-icon.PNG" alt="minimise" /></button>
+            <button id="close-icon"><img src="./assets/close-icon.PNG" alt="close" /></button>
+        </div>
+        <div class="content-container">
+            <img src="./assets/background.jpeg" alt="background" class="background-img" />
+            <h1 class="line">What are you making today?</h1>
+            <div class="eggs-container">
+                <div class="egg-item">
+                    <button id="soft-boiled-button">
+                        <img src="./assets/soft-boiled.PNG" alt="Soft-Boiled" />
+                    </button>
+                    <h1>Soft Boiled</h1>
+                </div>
+                <div class="egg-item">
+                    <button id="hard-boiled-button">
+                        <img src="./assets/hard-boiled.PNG" alt="Hard-Boiled" />
+                    </button>
+                    <h1>Hard Boiled</h1>
+                </div>
+                <div class="egg-item">
+                    <button id="fried-egg-button">
+                        <img src="./assets/fried-egg.PNG" alt="Fried-Egg" />
+                    </button>
+                    <h1>Fried Egg</h1>
+                </div>
+                <div class="egg-item">
+                    <button id="scrambled-egg-button">
+                        <img src="./assets/scrambled-egg.PNG" alt="Scrambled-Egg" />
+                    </button>
+                    <h1>Scrambled Egg</h1>
+                </div>
+            </div>
+        </div>
+        <script>
+            const { ipcRenderer } = require('electron');
+
+            const clickSound = document.getElementById('click-sound');
+
+            function playClickSound() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }
+
+            document.getElementById('soft-boiled-button').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('go-to-timer-page', 300);
+            });
+
+            document.getElementById('hard-boiled-button').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('go-to-timer-page', 600);
+            });
+
+            document.getElementById('fried-egg-button').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('go-to-timer-page', 180);
+            });
+
+            document.getElementById('scrambled-egg-button').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('go-to-timer-page', 240);
+            });
+
+            document.getElementById('close-icon').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('close-app');
+            });
+
+            document.getElementById('minimise-icon').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('minimise-window');
+            });
+        </script>
+    </body>
+</html>
