@@ -1,5 +1,5 @@
 # Egg-Timer
-##Egg Timer inspired by @Nashallery
+## Egg Timer inspired by @Nashallery
 
 # My Egg Timer 🥚⏲️
 
