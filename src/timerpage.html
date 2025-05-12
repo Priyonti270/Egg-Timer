@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>Egg Timer</title>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <audio id="click-sound" src="./assets/sounds/click.mp3" preload="auto"></audio>
+        <audio id="ding-sound" src="./assets/sounds/ding.mp3" preload="auto"></audio>
+        <div class="header-container">
+            <span class="title">Egg Timer &lt;3</span>
+            <button id="minimise-icon"><img src="./assets/minimise-icon.PNG" alt="minimise" /></button>
+            <button id="close-icon"><img src="./assets/close-icon.PNG" alt="close" /></button>
+        </div>
+        <div class="content-container">
+            <img src="./assets/background.jpeg" alt="background" class="background-img" />
+            <h1 class="line">Your egg is ready in...</h1>
+            <div class="chick-animation">
+                <img src="./assets/chick-animation/chick-1.PNG" alt="egg" />
+                <img src="./assets/chick-animation/chick-2.PNG" alt="egg" />
+                <img src="./assets/chick-animation/chick-3.PNG" alt="egg" />
+                <img src="./assets/chick-animation/chick-4.PNG" alt="egg" />
+                <img src="./assets/chick-animation/chick-5.PNG" alt="egg" />
+                <img src="./assets/chick-animation/chick-6.PNG" alt="egg" />
+            </div>
+            <div id="timer-display">00:00</div>
+        </div>
+        <script>
+            const { ipcRenderer } = require('electron');
+
+            const clickSound = document.getElementById('click-sound');
+            const dingSound = document.getElementById('ding-sound');
+
+            function playClickSound() {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            }
+
+            function playDingSound() {
+                dingSound.currentTime = 0;
+                dingSound.play();
+            }
+
+            ipcRenderer.on('start-timer', (event, durationInSeconds) => {
+                startTimer(durationInSeconds);
+            });
+
+            function startTimer(durationInSeconds) {
+                const timerDisplay = document.getElementById('timer-display');
+                let remainingTime = durationInSeconds;
+
+                const interval = setInterval(() => {
+                    const minutes = Math.floor(remainingTime / 60);
+                    const seconds = remainingTime % 60;
+
+                    // Update the timer display
+                    timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                    if (remainingTime <= 0) {
+                        clearInterval(interval);
+                        playDingSound();
+                        ipcRenderer.send('go-to-ending-page');
+                    }
+
+                    remainingTime--;
+                }, 1000);
+            }
+
+            document.getElementById('close-icon').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('close-app');
+            });
+
+            document.getElementById('minimise-icon').addEventListener('click', () => {
+                playClickSound();
+                ipcRenderer.send('minimise-window');
+            });
+        </script>
+    </body>
+</html>

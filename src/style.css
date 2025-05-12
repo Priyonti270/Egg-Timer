@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+
+/* colours */
+
+:root{
+    --orange: #F07E5F
+    --white: #FFFFFF
+    --brown: #67452D
+    --lightorange: #F19561
+    --borderyellow: #E98B1F
+    --backgroundyellow: #FFEA79
+}
+
+/* text style */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #ffea79;
+    text-transform: none;
+}
+
+button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    -webkit-app-region: drag;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    margin-top: 30px;
+    top: 5px;
+}
+
+.title {
+    font-size: 30px;
+    color: #f07e57;
+    text-transform: none;
+    font-weight: bold;
+    top: 10px;
+}
+
+.content-container {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    top: 2px;
+    padding: 20px;
+}
+
+.background-img {
+    border: 4px solid #e98b1f;
+    position: absolute;
+    width: 354px;
+    height: 407px;
+    object-fit: cover;
+    z-index: 0;
+    top: 10px;
+    right: 0;
+    bottom: 0;
+    left: 6px;
+}
+
+.tagline {
+    position: relative;
+    z-index: 1;
+    font-size: 38px;
+    margin-top: 80px;
+    line-height: 1.5;
+    color: #67452d;
+    text-transform: none;
+}
+
+.line {
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    margin-top: 5px;
+    line-height: 0.5;
+    color: #67452d;
+    text-transform: none;
+}
+
+.eggs-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.egg-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.egg-item button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.egg-item button img {
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.egg-item button:hover img {
+    transform: translateY(-6px);
+}
+
+.egg-item button:focus {
+    outline: none;
+}
+
+.egg-item h1 {
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #67452d;
+    font-size: 16px;
+    margin-top: 125px;
+    opacity: 0.9;
+    z-index: 2;
+}
+
+@keyframes rotate-images {
+    0% {
+        opacity: 1; /* Current image is fully visible */
+    }
+    16% {
+        opacity: 1; /* Current image is fully invisible */
+    }
+    20% {
+        opacity: 0; /* Current image is fully invisible */
+    }
+    100% {
+        opacity: 0; /* Remains invisible for the rest of the cycle */
+    }
+}
+
+.chick-animation img {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    object-fit: contain;
+    opacity: 0;
+    animation-name: rotate-images;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+.chick-animation img:nth-child(1) {
+    animation-delay: 0s;
+    width: 190px;
+    height: 250px;
+    left: 95px;
+    top: 70px;
+    opacity: 1;
+}
+
+.chick-animation img:nth-child(2) {
+    animation-delay: 1s;
+    width: 250px;
+    height: 250px;
+}
+
+.chick-animation img:nth-child(3) {
+    animation-delay: 2s;
+    width: 250px;
+    height: 250px;
+}
+
+.chick-animation img:nth-child(4) {
+    animation-delay: 3s;
+    width: 350px;
+    height: 250px;
+    left: 15px;
+}
+
+.chick-animation img:nth-child(5) {
+    animation-delay: 4s;
+    width: 250px;
+    height: 250px;
+}
+
+.chick-animation img:nth-child(6) {
+    animation-delay: 5s;
+    width: 250px;
+    height: 250px;
+}
+
+.egg-animation img {
+    position: absolute;
+    top: 60px;
+    right: 35px;
+    object-fit: contain;
+    opacity: 0;
+    animation-name: rotate-images;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+.egg-animation img:nth-child(1) {
+    animation-delay: 0s;
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+}
+
+.egg-animation img:nth-child(2) {
+    animation-delay: 1s;
+    width: 300px;
+    height: 300px;
+}
+
+.egg-animation img:nth-child(3) {
+    animation-delay: 2s;
+    width: 300px;
+    height: 300px;
+}
+
+.egg-animation img:nth-child(4) {
+    animation-delay: 3s;
+    width: 300px;
+    height: 300px;
+}
+
+.egg-animation img:nth-child(5) {
+    animation-delay: 4s;
+    width: 300px;
+    height: 300px;
+}
+
+.egg-animation img:nth-child(6) {
+    animation-delay: 5s;
+    width: 300px;
+    height: 300px;
+}
+
+.egg-animation img:nth-child(7) {
+    animation-delay: 6s;
+    width: 300px;
+    height: 300px;
+}
+
+.egg-animation img:nth-child(8) {
+    animation-delay: 7s;
+    width: 300px;
+    height: 300px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    top: 220px;
+    left: 0;
+    right: 0;
+}
+
+
+#timer-display {
+    font-family: 'Silkscreen', sans-serif;
+    color: #67452d;
+    font-size: 85px;
+    font-weight: 800;
+    line-height: 3;
+    z-index: 2;
+    position: absolute;
+    top: 240px;
+    left: 45px;
+    margin: 0;
+    padding: 0;
+}
+
+#start-button {
+    -webkit-app-region: no-drag;
+    position: relative;
+    z-index: 1;
+    margin-top: 30px;
+    background-color: #ffc7a7;
+    border: 4px solid #c07352;
+    font-size: 24px;
+    padding: 2px 20px 2px 20px;
+    cursor: pointer;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #d76343;
+    text-transform: none;
+}
+
+#close-button {
+    -webkit-app-region: no-drag;
+    position: relative;
+    z-index: 1;
+    top: 100px;
+    background-color: #ffc7a7;
+    border: 4px solid #c07352;
+    font-size: 24px;
+    padding: 2px 20px 2px 20px;
+    cursor: pointer;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #d76343;
+    text-transform: none;
+}
+
+#snooze-button {
+    -webkit-app-region: no-drag;
+    position: relative;
+    z-index: 1;
+    top: 100px;
+    background-color: #ffc7a7;
+    border: 4px solid #c07352;
+    font-size: 24px;
+    padding: 2px 10px 2px 10px;
+    cursor: pointer;
+    font-family: 'Pixelify Sans', sans-serif;
+    color: #d76343;
+    text-transform: none;
+}
+
+#minimise-icon {
+    -webkit-app-region: no-drag;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    display: flex;
+    gap: 10px;
+}
+
+#close-icon {
+    -webkit-app-region: no-drag;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+#soft-boiled-button img {
+    -webkit-app-region: no-drag;
+    width: 100px;
+    height: 120px;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+}
+
+#hard-boiled-button img {
+    -webkit-app-region: no-drag;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 60px;
+    right: 40px;
+}
+
+#fried-egg-button img {
+    -webkit-app-region: no-drag;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 245px;
+    left: 40px;
+}
+
+#scrambled-egg-button img {
+    -webkit-app-region: no-drag;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 245px;
+    right: 40px;
+}

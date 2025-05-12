@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Egg Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Landing Page -->
+  <section id="landing" class='landing-page'>
+    <h1>Let's time your egg!</h1>
+    <button onclick="goToSelection()">Start</button>
+  </section>
+
+  <!-- Selection Page -->
+  <section id="selection" class="view">
+    <h1>What are you making today?</h1>
+    <div class="grid">
+      <button onclick="startTimer('Soft Boiled')">Soft Boiled</button>
+      <button onclick="startTimer('Hard Boiled')">Hard Boiled</button>
+      <button onclick="startTimer('Fried Egg')">Fried Egg</button>
+      <button onclick="startTimer('Scrambled')">Scrambled</button>
+    </div>
+  </section>
+
+  <!-- Timer Page -->
+  <section id="timer" class="view">
+    <h1>Your egg is ready in...</h1>
+    <div class="egg-animation">🥚</div>
+    <h2 id="countdown">00:00</h2>
+  </section>
+
+  <!-- Ending Page -->
+  <section id="ending" class="view">
+    <h1>Your egg is ready!</h1>
+    <button onclick="snooze()">Snooze</button>
+    <button onclick="closeApp()">Close</button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
