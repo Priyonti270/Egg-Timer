@@ -27,18 +27,3 @@
   }
 }
 
-{
-  "name": "egg-timer",
-  "version": "1.0.0",
-  "main": "src/main.js",
-  "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Priyonti Tabassum Haque",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "electron": "^36.2.0"
-  }
-}
