@@ -10,7 +10,8 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
-        }
+        },
+        icon: './src/assets/Egg.PNG'
     });
 
     win.loadFile(path.join(__dirname, 'startpage.html'));
