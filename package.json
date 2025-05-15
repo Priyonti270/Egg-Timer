@@ -1,5 +1,5 @@
 {
-  "name": "egg-timer",
+  "name": "my-egg-timer",
   "productName": "My Egg Timer",
   "version": "1.0.0",
   "main": "src/main.js",
